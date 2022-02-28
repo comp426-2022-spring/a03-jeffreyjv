@@ -1,5 +1,3 @@
-
-   
 import minimist from 'minimist'
 import express from 'express'
 
@@ -17,12 +15,12 @@ function coinFlip() {
   }
 
 function coinFlips(flips) {
-    let f = [];
+    let x = [];
     for (var i = 0; i < flips; i++) {
       let flip = coinFlip();
-      f[i] = flip;
+      x[i] = flip;
     }
-    return f;
+    return x;
   }
 
 function countFlips(array) {
