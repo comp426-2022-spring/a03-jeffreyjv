@@ -10,17 +10,18 @@ const server = app.listen(port, () => {
     console.log('App is running on port %PORT%'.replace('%PORT%', port))
 })
 
+// coin flip functions 
 function coinFlip() {
     return (Math.floor(Math.random() * 2) == 0) ? 'heads' : 'tails';
   }
 
 function coinFlips(flips) {
-    let x = [];
+    let a = [];
     for (var i = 0; i < flips; i++) {
       let flip = coinFlip();
-      x[i] = flip;
+      a[i] = flip;
     }
-    return x;
+    return a;
   }
 
 function countFlips(array) {
@@ -53,6 +54,7 @@ function flipACoin(call) {
     return {"call": call, "flip": coin_flip, "result": match};
   }
 
+//endpoints
 app.get('/app/', (req, res) => {
     res.status(200).end("OK")
     res.type('text/plain')
@@ -70,6 +72,6 @@ app.get('/app/flip/call/heads/', (req, res) => {
     res.status(200).json(flipACoin('heads'))
 })
 app.use(function(req, res) {
-    res.status(404).send("Endpoint does not exist")
+    res.status(404).send("Endpoint not defined")
     res.type("text/plain")
 })
